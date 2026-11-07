@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PASSO — Ténis masculinos · Maputo</title>
+<meta name="description" content="PASSO — ténis masculinos em Maputo. Corrida, lifestyle, skate e basquetebol. As mesmas ruas, novos passos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4efe8; --bg2:#ece5d8; --card:#fbf9f5; --ink:#171717; --ink2:#55524c;
+  --line:#e0d8c9; --green:#253f35; --dgreen:#030d07; --terra:#b46d55; --olive:#62674b;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',Arial,sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;background:none;border:0;color:inherit}
+input,select,textarea{font-family:var(--sans);font-size:15px;color:var(--ink)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2)}
+.rule{height:1px;background:var(--line);border:0}
+/* announcement */
+.ann{background:var(--dgreen);color:#e8e2d5;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px}
+.ann b{font-weight:500;color:#fff}
+/* header */
+header.site{position:sticky;top:0;z-index:60;background:rgba(244,239,232,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:26px;letter-spacing:.14em;font-weight:500}
+.logo small{font-family:var(--mono);font-size:9px;letter-spacing:.3em;color:var(--ink2);display:block;line-height:1;margin-top:1px}
+.hd nav{display:flex;gap:26px;align-items:center}
+.hd nav a{font-size:13px;letter-spacing:.06em}
+.hd nav a:hover{color:var(--terra)}
+.hd .acts{display:flex;gap:18px;align-items:center;font-size:13px}
+.hd .acts button{font-size:13px;letter-spacing:.04em}
+.bagcount{background:var(--green);color:#fff;border-radius:99px;min-width:19px;height:19px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;padding:0 5px;font-family:var(--mono)}
+.burger{display:none;font-size:22px;line-height:1}
+/* hero */
+.hero{position:relative;background:var(--dgreen);color:#f4efe8;overflow:hidden}
+.hero video{width:100%;height:min(86vh,760px);object-fit:cover;opacity:.92}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,13,7,.28),rgba(3,13,7,.08) 45%,rgba(3,13,7,.62))}
+.hero .copy{position:absolute;left:0;right:0;bottom:0;padding:0 24px 44px;max-width:1280px;margin:0 auto}
+.hero .slide{display:none}
+.hero .slide.on{display:block;animation:fadein .8s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero h1{font-size:clamp(38px,6.4vw,76px);color:#fff;max-width:14ch}
+.hero p{margin-top:12px;color:#e8e2d5;font-size:15px;max-width:46ch}
+.hero .cta{margin-top:22px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#f4efe8;color:var(--ink);padding:13px 24px;font-size:13px;letter-spacing:.05em;border-radius:99px;font-weight:500}
+.btn.dark{background:var(--green);color:#fff}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(244,239,232,.65)}
+.btn.line{border:1px solid var(--ink);border-radius:99px;padding:11px 22px;font-size:13px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.hero .dots{position:absolute;right:24px;bottom:44px;display:flex;gap:8px}
+.hero .dots i{width:26px;height:2px;background:rgba(244,239,232,.4);cursor:pointer}
+.hero .dots i.on{background:#fff}
+/* sections */
+section.blk{padding:72px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.sec-head h2{font-size:clamp(30px,4vw,46px)}
+.sec-head .more{font-size:13px;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+/* product cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+.card .ph{position:relative;background:#efe9dd;aspect-ratio:4/3;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:contain}
+.card .ph .tag{position:absolute;top:10px;left:10px;background:var(--dgreen);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 8px}
+.card .ph .tag.sale{background:var(--terra)}
+.card .bd{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .cat{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
+.card h3{font-size:21px}
+.card .price{font-family:var(--mono);font-size:14px}
+.card .sizes{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.size{border:1px solid var(--line);background:#fff;min-width:38px;height:32px;padding:0 8px;font-size:12px;font-family:var(--mono);display:inline-flex;align-items:center;justify-content:center}
+.size.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.size.out{opacity:.35;text-decoration:line-through}
+.card .add{margin-top:12px;border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500}
+.card .add:hover{color:var(--terra)}
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.catcard{position:relative;overflow:hidden;background:#e8e2d5}
+.catcard img{width:100%;height:auto}
+.catcard .lb{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(180deg,transparent,rgba(3,13,7,.72));color:#fff;display:flex;justify-content:space-between;align-items:flex-end}
+.catcard .lb b{font-family:var(--serif);font-weight:400;font-size:24px}
+.catcard .lb span{font-family:var(--mono);font-size:11px;letter-spacing:.12em}
+/* collection feature */
+.feat{background:var(--dgreen);color:#e8e2d5}
+.feat .in{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.feat h2{color:#fff;font-size:clamp(32px,4.4vw,54px)}
+.feat h2 em{font-style:italic;color:#c9b490}
+.feat p{margin-top:16px;color:#cfc8b8;max-width:52ch}
+.feat .imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feat .imgs img{width:100%;height:auto}
+/* journal */
+.jgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.jcard{background:var(--card);border:1px solid var(--line)}
+.jcard img{width:100%;height:auto}
+.jcard .bd{padding:20px}
+.jcard h3{font-size:26px;margin-top:6px}
+.jcard p{color:var(--ink2);font-size:14px;margin-top:8px}
+/* sign-off */
+.signoff{text-align:center;padding:84px 24px}
+.signoff h2{font-size:clamp(40px,7vw,88px)}
+.signoff .coords{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink2);margin-top:18px}
+.signoff .addr{margin-top:6px;font-size:14px}
+/* footer */
+footer{background:var(--dgreen);color:#cfc8b8;padding:64px 0 28px}
+footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+footer h4{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8fa396;margin-bottom:16px}
+footer a{display:block;font-size:14px;padding:4px 0}
+footer a:hover{color:#fff}
+footer .brand{font-family:var(--serif);font-size:44px;color:#fff;letter-spacing:.1em}
+footer .news{margin-top:26px;display:flex;gap:10px;max-width:420px}
+footer .news input{flex:1;background:transparent;border:1px solid #4a5a50;color:#e8e2d5;padding:11px 14px;border-radius:99px}
+footer .news input::placeholder{color:#8fa396}
+footer .news button{background:#e8e2d5;color:var(--ink);border-radius:99px;padding:11px 20px;font-size:13px;font-weight:500}
+footer .legal{margin-top:48px;border-top:1px solid #2c4036;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;font-family:var(--mono);letter-spacing:.06em}
+/* drawer (cart / menu) */
+.scrim{position:fixed;inset:0;background:rgba(3,13,7,.5);z-index:80;display:none}
+.scrim.on{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,92vw);background:var(--bg);z-index:90;transform:translateX(105%);transition:transform .35s ease;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.18)}
+.drawer.on{transform:none}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.drawer header h3{font-size:24px}
+.drawer .body{flex:1;overflow-y:auto;padding:18px 22px}
+.drawer .foot{border-top:1px solid var(--line);padding:18px 22px}
+.drawer .foot .row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.drawer .foot .row.total{font-size:17px;font-weight:500}
+.drawer .foot .btn{width:100%;justify-content:center;margin-top:10px}
+.cartline{display:grid;grid-template-columns:84px 1fr auto;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.cartline img{width:84px;height:64px;object-fit:contain;background:#efe9dd}
+.cartline .nm{font-family:var(--serif);font-size:17px}
+.cartline .meta{font-size:12px;color:var(--ink2);font-family:var(--mono)}
+.cartline .qty{display:flex;align-items:center;gap:10px;margin-top:6px}
+.cartline .qty button{border:1px solid var(--line);width:26px;height:26px;border-radius:99px}
+.empty{text-align:center;padding:52px 10px;color:var(--ink2)}
+.empty .big{font-family:var(--serif);font-size:28px;color:var(--ink);margin-bottom:8px}
+/* menu overlay */
+.menuov{position:fixed;inset:0;background:var(--dgreen);color:#e8e2d5;z-index:95;display:none;flex-direction:column;padding:22px 24px}
+.menuov.on{display:flex}
+.menuov .top{display:flex;justify-content:space-between;align-items:center}
+.menuov .links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.menuov .links a{font-family:var(--serif);font-size:clamp(34px,7vw,54px);color:#fff;line-height:1.25}
+.menuov .links a:hover{color:#c9b490}
+.menuov .foot{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#8fa396}
+/* views */
+.view{display:none}
+.view.on{display:block}
+.page{padding:44px 0 72px}
+.page h1{font-size:clamp(32px,4.6vw,52px);margin:8px 0 6px}
+.page .sub{color:var(--ink2);max-width:62ch}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+.chip{border:1px solid var(--ink);border-radius:99px;padding:8px 16px;font-size:13px;background:transparent}
+.chip.on{background:var(--ink);color:#fff}
+/* product detail */
+.pd{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;margin-top:30px}
+.pd .ph{background:#efe9dd;border:1px solid var(--line)}
+.pd .ph img{width:100%;height:100%;object-fit:contain}
+.pd h1{font-size:clamp(30px,4vw,46px)}
+.pd .price{font-family:var(--mono);font-size:19px;margin-top:10px}
+.pd .desc{margin-top:18px;color:var(--ink2)}
+.pd .lab{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);margin:24px 0 10px}
+.pd .det{font-size:14px;color:var(--ink2)}
+.pd .det li{margin-left:18px;padding:2px 0}
+.rel{margin-top:64px}
+/* forms */
+.form{max-width:460px;margin:0 auto}
+.form label{display:block;font-size:13px;margin:16px 0 6px;font-weight:500}
+.form input,.form select,.form textarea{width:100%;border:1px solid var(--line);background:#fff;padding:12px 14px;border-radius:10px}
+.form textarea{min-height:110px;resize:vertical}
+.form .btn{width:100%;justify-content:center;margin-top:22px}
+.note{font-size:13px;color:var(--ink2);text-align:center;margin-top:14px}
+.err{background:#fbe9e4;border:1px solid #e8b4a6;color:#7a2d1d;padding:12px 14px;border-radius:10px;font-size:14px;margin-top:16px}
+.ok{background:#e7efe9;border:1px solid #b9d2bd;color:#234d2e;padding:12px 14px;border-radius:10px;font-size:14px;margin-top:16px}
+/* account / orders */
+.acct{display:grid;grid-template-columns:220px 1fr;gap:36px;margin-top:30px}
+.acct .side a{display:block;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.acct .side a.on{font-weight:600}
+.ord{border:1px solid var(--line);background:var(--card);padding:18px;margin-bottom:14px}
+.ord .top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ord .id{font-family:var(--mono);font-size:13px}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:#efe9dd}
+.pill.paid{background:#dcead9;color:#234d2e}
+.pill.wait{background:#f3e3d3;color:#7a4a1d}
+/* admin */
+.adm{display:grid;grid-template-columns:210px 1fr;gap:36px;margin-top:30px}
+.adm .tabs a{display:block;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.adm .tabs a.on{font-weight:600}
+table.tb{width:100%;border-collapse:collapse;font-size:14px}
+.tb th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);padding:10px 8px;border-bottom:1px solid var(--line)}
+.tb td{padding:12px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tb img{width:56px;height:42px;object-fit:contain;background:#efe9dd}
+.mini{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:6px 12px;background:#fff}
+.mini.danger{border-color:#c98a7a;color:#8a2f1d}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.kpi div{background:var(--card);border:1px solid var(--line);padding:16px}
+.kpi b{font-family:var(--serif);font-size:30px;font-weight:400;display:block}
+.kpi span{font-size:12px;color:var(--ink2);font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
+/* chat */
+.chatwrap{position:fixed;inset:0;background:var(--bg);z-index:100;display:none;flex-direction:column}
+.chatwrap.on{display:flex}
+.chatwrap header{background:var(--dgreen);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.chatwrap header .lg{font-family:var(--serif);font-size:22px;letter-spacing:.12em}
+.chatwrap header .st{font-size:12px;color:#b9cdbf}
+.chatwrap header .x{margin-left:auto;font-size:22px;color:#fff}
+.chatmsgs{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:#efe9dd}
+.msg{max-width:78%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-wrap;word-break:break-word}
+.msg.me{align-self:flex-end;background:var(--green);color:#fff;border-bottom-right-radius:4px}
+.msg.them{align-self:flex-start;background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg .t{font-size:10px;opacity:.65;font-family:var(--mono);margin-top:4px;text-align:right}
+.msg img{max-width:220px;border-radius:8px}
+.chatbar{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--bg);align-items:center}
+.chatbar input{flex:1;border:1px solid var(--line);border-radius:99px;padding:11px 16px;background:#fff}
+.chatbar .ic{width:42px;height:42px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:17px}
+.chatbar .send{width:42px;height:42px;border-radius:99px;background:var(--green);color:#fff;font-size:17px}
+.chatbar .rec.on{background:#c0392b;color:#fff;border-color:#c0392b}
+/* toast */
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:99px;font-size:13px;z-index:120;opacity:0;pointer-events:none;transition:.3s}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .feat .in{grid-template-columns:1fr}
+  .pd{grid-template-columns:1fr}
+  .acct,.adm{grid-template-columns:1fr}
+  .co{grid-template-columns:1fr!important}
+  .grid2{grid-template-columns:1fr!important}
+  .kpi{grid-template-columns:repeat(2,1fr)}
+  footer .cols{grid-template-columns:repeat(2,1fr)}
+  .hd nav{display:none}
+  .burger{display:block}
+  .hero video{height:74vh}
+}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr 1fr;gap:12px}
+  .card .bd{padding:12px}
+  .card h3{font-size:17px}
+  .jgrid{grid-template-columns:1fr}
+  section.blk{padding:52px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="ann" id="annBar">Entrega grátis em Maputo em compras acima de <b>5.000 MT</b></div>
+
+<header class="site">
+  <div class="wrap hd">
+    <a class="logo" href="#/inicio">PASSO<small>TÉNIS · MAPUTO</small></a>
+    <nav>
+      <a href="#/loja">Loja</a>
+      <a href="#/loja?cat=Corrida">Corrida</a>
+      <a href="#/loja?cat=Lifestyle">Lifestyle</a>
+      <a href="#/diario">Diário</a>
+      <a href="#/sobre">Sobre</a>
+    </nav>
+    <div class="acts">
+      <button id="acctBtn" onclick="goConta()">Conta</button>
+      <button onclick="openCart()">Saco <span class="bagcount" id="bagCount">0</span></button>
+      <button class="burger" onclick="openMenu()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ INÍCIO ============ -->
+<div class="view on" id="view-inicio">
+  <section class="hero">
+    <video id="heroVideo" autoplay muted loop playsinline poster="videos/hero-poster.jpg" src="videos/hero.mp4"></video>
+    <div class="veil"></div>
+    <div class="copy">
+      <div class="slide on">
+        <p class="eyebrow" style="color:#c9b490">Novidades · Coleção Maputo 26'</p>
+        <h1>Essenciais para todos os dias.</h1>
+        <p>Ténis masculinos para correr, andar e viver a cidade — do primeiro passo da manhã ao caminho longo para casa.</p>
+        <div class="cta"><a class="btn" href="#/loja">Ver a coleção</a><a class="btn ghost" href="#/diario">Ler o diário</a></div>
+      </div>
+      <div class="slide">
+        <p class="eyebrow" style="color:#c9b490">Diário · Histórias, pessoas e lugares</p>
+        <h1>Histórias, pessoas e lugares.</h1>
+        <p>Como a cidade deixa a sua marca no que vestimos — e como o que vestimos nos leva mais longe.</p>
+        <div class="cta"><a class="btn" href="#/diario">Ler o diário</a><a class="btn ghost" href="#/loja">Ver a coleção</a></div>
+      </div>
+      <div class="slide">
+        <p class="eyebrow" style="color:#c9b490">Maputo · Polana</p>
+        <h1>As mesmas ruas, novos passos.</h1>
+        <p>16 modelos, 4 estilos, tamanhos 40–46. Encomenda online e recebe em Maputo.</p>
+        <div class="cta"><a class="btn" href="#/loja">Ver novidades</a><a class="btn ghost" href="#/sobre">Sobre a PASSO</a></div>
+      </div>
+    </div>
+    <div class="dots" id="heroDots"><i class="on" onclick="heroGo(0)"></i><i onclick="heroGo(1)"></i><i onclick="heroGo(2)"></i></div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Novidades</p><h2>Chegaram agora.</h2></div>
+        <a class="more" href="#/loja">Ver todos os ténis →</a>
+      </div>
+      <div class="grid" id="newGrid"></div>
+    </div>
+  </section>
+
+  <section class="blk" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Categorias</p><h2>Escolhe o teu estilo.</h2></div>
+      </div>
+      <div class="cats" id="catGrid"></div>
+    </div>
+  </section>
+
+  <section class="blk feat">
+    <div class="wrap in">
+      <div>
+        <p class="eyebrow" style="color:#c9b490">Maputo 26' · Edição Cidade</p>
+        <h2>Feitos para o ritmo <em>da cidade.</em></h2>
+        <p>Uma coleção pensada para Maputo — calor, chuva, passeio e pista. Materiais que respiram, solas que agarram e silhuetas que passam do treino para a rua sem mudar de par.</p>
+        <p>Doze modelos em quatro estilos, tamanhos 40 a 46, sempre com a mesma promessa: conforto que dura o dia inteiro.</p>
+        <div class="cta" style="margin-top:26px"><a class="btn" href="#/loja">Explorar a coleção</a></div>
+      </div>
+      <div class="imgs">
+        <img src="https://images.pexels.com/photos/29499910/pexels-photo-29499910.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ténis brancos sobre relva ao pôr do sol" loading="lazy">
+        <img src="https://images.pexels.com/photos/966058/pexels-photo-966058.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ténis vermelhos em salto sobre calçada à noite" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow">Diário</p><h2>Para além do dia a dia.</h2></div>
+        <a class="more" href="#/diario">Ler o diário →</a>
+      </div>
+      <p style="color:var(--ink2);max-width:64ch;margin:-14px 0 28px">Histórias de pessoas, lugares e dos detalhes que moldam a forma como nos movemos. Do primeiro passeio da manhã ao caminho longo para casa, olhamos para como a vida do dia a dia deixa a sua marca no que vestimos.</p>
+      <div class="jgrid" id="journalHome"></div>
+    </div>
+  </section>
+
+  <section class="signoff">
+    <p class="eyebrow">Maputo · Moçambique</p>
+    <h2>As mesmas ruas,<br>novos passos.</h2>
+    <p class="coords">25.9692° S, 32.5732° E</p>
+    <p class="addr" id="storeAddr">Av. Julius Nyerere, Polana, Maputo</p>
+  </section>
+</div>
+
+<!-- ============ LOJA ============ -->
+<div class="view" id="view-loja">
+  <div class="wrap page">
+    <p class="eyebrow">Loja · <span id="shopCount"></span></p>
+    <h1 id="shopTitle">Todos os ténis.</h1>
+    <p class="sub">16 modelos em 4 estilos. Escolhe o tamanho, adiciona ao saco e finaliza a encomenda — o pagamento é confirmado no chat.</p>
+    <div class="filters" id="shopFilters"></div>
+    <div class="grid" id="shopGrid"></div>
+  </div>
+</div>
+
+<!-- ============ PRODUTO ============ -->
+<div class="view" id="view-produto">
+  <div class="wrap page" id="productDetail"></div>
+</div>
+
+<!-- ============ DIÁRIO ============ -->
+<div class="view" id="view-diario">
+  <div class="wrap page">
+    <p class="eyebrow">Diário</p>
+    <h1>Para além do dia a dia.</h1>
+    <p class="sub">Histórias de pessoas, lugares e dos detalhes que moldam a forma como nos movemos.</p>
+    <div class="jgrid" id="journalList" style="margin-top:34px"></div>
+  </div>
+</div>
+
+<!-- ============ ARTIGO ============ -->
+<div class="view" id="view-artigo">
+  <div class="wrap page" id="articleDetail"></div>
+</div>
+
+<!-- ============ SOBRE ============ -->
+<div class="view" id="view-sobre">
+  <div class="wrap page">
+    <p class="eyebrow">Sobre</p>
+    <h1>A PASSO é uma loja de ténis de Maputo.</h1>
+    <p class="sub" style="margin-top:14px">Nascemos na Polana com uma ideia simples: bons ténis, sem complicação. Corrida, lifestyle, skate e basquetebol — modelos escolhidos um a um, com tamanhos 40 a 46 e entrega em Maputo, Matola e províncias.</p>
+    <p class="sub" style="margin-top:14px">Encomendas online, pagamento por M-Pesa e acompanhamento no chat, do primeiro passo à entrega. Se precisares de ajuda com o tamanho ou com um modelo, fala connosco — respondemos no chat da loja.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px" class="kpi">
+      <div><b>16</b><span>modelos</span></div>
+      <div><b>4</b><span>estilos</span></div>
+      <div><b>40–46</b><span>tamanhos</span></div>
+      <div><b>Maputo</b><span>entrega</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ AJUDA ============ -->
+<div class="view" id="view-ajuda">
+  <div class="wrap page">
+    <p class="eyebrow">Ajuda</p>
+    <h1>Contacto, entregas e tamanhos.</h1>
+    <div class="grid2" style="margin-top:30px">
+      <div class="ord"><h3 style="font-size:22px">Contacto</h3><p style="color:var(--ink2);margin-top:8px">WhatsApp <span id="helpWa">258 84 000 0000</span><br>Email <span id="helpMail">ola@passo.co.mz</span><br><span id="helpAddr">Av. Julius Nyerere, Polana, Maputo</span></p><p style="margin-top:14px"><button class="mini" onclick="openChat()">Abrir o chat da loja</button></p></div>
+      <div class="ord"><h3 style="font-size:22px">Entregas e devoluções</h3><p style="color:var(--ink2);margin-top:8px">Maputo 150 MT · Matola 200 MT · Províncias 350 MT · Levantamento na loja 0 MT.<br>Entregas em Maputo em 1–2 dias úteis. Podes trocar o tamanho em 7 dias, com o ténis sem uso e na caixa original — fala connosco no chat.</p></div>
+      <div class="ord"><h3 style="font-size:22px">Guia de tamanhos</h3><p style="color:var(--ink2);margin-top:8px">Usamos numeração europeia, 40 a 46. Se estás entre dois tamanhos, escolhe o maior. Em corrida, meio número acima dá mais conforto nos treinos longos.</p></div>
+      <div class="ord"><h3 style="font-size:22px">Perguntas frequentes</h3><p style="color:var(--ink2);margin-top:8px"><b>Como pago?</b> Por M-Pesa, confirmado no chat após a encomenda.<br><b>Preciso de conta?</b> Sim — cria a tua conta para encomendar e acompanhar tudo.<br><b>Há stock?</b> O stock de cada modelo está no painel do produto.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CONTA ============ -->
+<div class="view" id="view-conta">
+  <div class="wrap page" id="accountRoot"></div>
+</div>
+
+<!-- ============ ADMIN ============ -->
+<div class="view" id="view-admin">
+  <div class="wrap page" id="adminRoot"></div>
+</div>
+
+<!-- ============ FINALIZAR ============ -->
+<div class="view" id="view-finalizar">
+  <div class="wrap page" id="checkoutRoot"></div>
+</div>
+
+<!-- ============ ENCOMENDA / RECIBO ============ -->
+<div class="view" id="view-encomenda">
+  <div class="wrap page" id="orderRoot"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand">PASSO</div>
+        <p style="font-size:13px;margin-top:10px">Ténis masculinos · Maputo.<br>As mesmas ruas, novos passos.</p>
+        <p style="font-size:13px;margin-top:14px" id="footAddr">Av. Julius Nyerere, Polana, Maputo</p>
+      </div>
+      <div>
+        <h4>Loja</h4>
+        <a href="#/loja">Todos os ténis</a>
+        <a href="#/loja?cat=Corrida">Corrida</a>
+        <a href="#/loja?cat=Lifestyle">Lifestyle</a>
+        <a href="#/loja?cat=Skate">Skate</a>
+        <a href="#/loja?cat=Basquetebol">Basquetebol</a>
+      </div>
+      <div>
+        <h4>Ajuda</h4>
+        <a href="#/ajuda">Contacto</a>
+        <a href="#/ajuda">Entregas e devoluções</a>
+        <a href="#/ajuda">Guia de tamanhos</a>
+        <a href="#/ajuda">Perguntas frequentes</a>
+        <a href="#/conta" onclick="setTimeout(openChat,300)">Chat da loja</a>
+      </div>
+      <div>
+        <h4>PASSO</h4>
+        <a href="#/sobre">Sobre</a>
+        <a href="#/diario">Diário</a>
+        <a href="#/conta">Minha conta</a>
+        <a href="#/admin">Gerência</a>
+      </div>
+    </div>
+    <div class="news">
+      <input id="newsEmail" type="email" placeholder="O teu email para novidades">
+      <button onclick="subscribeNews()">Subscrever</button>
+    </div>
+    <div class="legal">
+      <span>© PASSO 2026 · Maputo</span>
+      <span>Termos &amp; Condições · Privacidade · Cookies</span>
+      <span>25.9692° S, 32.5732° E</span>
+    </div>
+  </div>
+</footer>
+
+<!-- drawer: carrinho -->
+<div class="scrim" id="scrim" onclick="closeDrawers()"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Saco">
+  <header><h3>O teu saco (<span id="cartN">0</span>)</h3><button onclick="closeDrawers()" style="font-size:22px">✕</button></header>
+  <div class="body" id="cartBody"></div>
+  <div class="foot" id="cartFoot"></div>
+</aside>
+
+<!-- menu -->
+<div class="menuov" id="menuOv">
+  <div class="top"><span class="logo" style="color:#fff">PASSO</span><button onclick="closeMenu()" style="color:#fff;font-size:26px">✕</button></div>
+  <div class="links">
+    <a href="#/loja" onclick="closeMenu()">Loja</a>
+    <a href="#/loja?cat=Corrida" onclick="closeMenu()">Corrida</a>
+    <a href="#/loja?cat=Lifestyle" onclick="closeMenu()">Lifestyle</a>
+    <a href="#/diario" onclick="closeMenu()">Diário</a>
+    <a href="#/sobre" onclick="closeMenu()">Sobre</a>
+    <a href="#/ajuda" onclick="closeMenu()">Ajuda</a>
+    <a href="#/conta" onclick="closeMenu()">Minha conta</a>
+  </div>
+  <div class="foot">PASSO · MAPUTO · 25.9692° S, 32.5732° E</div>
+</div>
+
+<!-- chat ecrã inteiro -->
+<div class="chatwrap" id="chatWrap">
+  <header>
+    <span class="lg">PASSO</span>
+    <span class="st" id="chatStatus">Chat da loja · responde em breve</span>
+    <button class="x" onclick="closeChat()">✕</button>
+  </header>
+  <div class="chatmsgs" id="chatMsgs"></div>
+  <div class="chatbar">
+    <input id="chatFile" type="file" accept="image/*,audio/*" style="display:none" onchange="chatAttach(this)">
+    <button class="ic" onclick="document.getElementById('chatFile').click()" title="Anexar foto ou áudio">＋</button>
+    <button class="ic rec" id="recBtn" onclick="toggleRec()" title="Gravar áudio">●</button>
+    <input id="chatInput" placeholder="Escreve a tua mensagem…" onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script>
+/* ================= PASSO — loja de ténis masculinos, Maputo ================= */
+const LS='passo_';
+const SIZES=[40,41,42,43,44,45,46];
+const CATS=[
+ {name:'Corrida', img:'https://images.pexels.com/photos/33995250/pexels-photo-33995250.jpeg?auto=compress&cs=tinysrgb&w=1200', alt:'Homem a correr a atravessar uma rua da cidade'},
+ {name:'Lifestyle', img:'https://images.pexels.com/photos/10408588/pexels-photo-10408588.jpeg?auto=compress&cs=tinysrgb&w=1200', alt:'Homem em estilo de rua com ténis colorido'},
+ {name:'Skate', img:'https://images.pexels.com/photos/8857822/pexels-photo-8857822.jpeg?auto=compress&cs=tinysrgb&w=1200', alt:'Ténis vermelhos a fazer um truque no skate'},
+ {name:'Basquetebol', img:'https://images.pexels.com/photos/34476091/pexels-photo-34476091.jpeg?auto=compress&cs=tinysrgb&w=1200', alt:'Ténis de basquetebol num campo exterior'}
+];
+const DEFAULT_PRODUCTS=[
+ {id:'p01',name:'Velocity One',cat:'Corrida',price:8500,stock:8,img:'https://images.pexels.com/photos/1670766/pexels-photo-1670766.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Malha leve e respirável, sola em espuma de resposta rápida. Para os quilómetros de todos os dias.',det:['Cabedal em malha respirável','Sola em espuma de resposta rápida','Drop 8 mm · 240 g (n.º 42)','Ideal para treino diário e corrida de rua']},
+ {id:'p02',name:'Maré Runner',cat:'Corrida',price:7200,stock:8,img:'https://images.pexels.com/photos/8858120/pexels-photo-8858120.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Amortecimento suave e cabedal em malha aberta. Feito para o ritmo da cidade.',det:['Amortecimento suave em toda a sola','Cabedal em malha aberta','Drop 10 mm · 265 g (n.º 42)','Ideal para corrida leve e passeio']},
+ {id:'p03',name:'Vento Pro',cat:'Corrida',price:9800,stock:6,img:'https://images.pexels.com/photos/29499910/pexels-photo-29499910.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Leve, estável e com aderência em qualquer piso. O teu par de treino e de prova.',det:['Placa de estabilidade no meio-pé','Sola com grip em piso seco e molhado','Drop 6 mm · 225 g (n.º 42)','Ideal para treino e prova']},
+ {id:'p04',name:'Noite Runner',cat:'Corrida',price:10500,stock:6,img:'https://images.pexels.com/photos/966058/pexels-photo-966058.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Refletores discretos, sola com grip e cabedal que respira. Corre de dia ou de noite.',det:['Detalhes refletores 360°','Sola com grip reforçado','Drop 8 mm · 250 g (n.º 42)','Ideal para corrida ao fim do dia']},
+ {id:'p05',name:'Cidade Low',cat:'Lifestyle',price:6500,stock:10,img:'https://images.pexels.com/photos/14212624/pexels-photo-14212624.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Silhueta baixa e limpa, sola em borracha macia. O clássico de todos os dias.',det:['Cabedal em pele e camurça','Sola em borracha macia','Cano baixo · uso diário','Combina com tudo']},
+ {id:'p06',name:'Baía Classic',cat:'Lifestyle',price:5900,stock:10,img:'https://images.pexels.com/photos/11737178/pexels-photo-11737178.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Preto e branco, cabedal em pele lisa. Simples, direto e sempre certo.',det:['Cabedal em pele lisa','Sola em borracha com padrão clássico','Cano baixo · uso diário','O par mais versátil da loja']},
+ {id:'p07',name:'Polana Suede',cat:'Lifestyle',price:7800,stock:7,img:'https://images.pexels.com/photos/12725050/pexels-photo-12725050.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Camurça macia e cano baixo. Um ícone em vermelho, branco e preto.',det:['Cabedal em camurça macia','Sola em borracha','Cano baixo · edição clássica','Ideal para o dia a dia com estilo']},
+ {id:'p08',name:'Marginal Slip',cat:'Lifestyle',price:5200,stock:10,img:'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Conforto imediato, sem atacadores a apertar. Calça e vai.',det:['Sem atacadores — calça e vai','Palmilha almofadada','Cano baixo · uso diário','Ideal para quem está sempre a andar']},
+ {id:'p09',name:'Rua Skate',cat:'Skate',price:6900,stock:8,img:'https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Cabedal reforçado e sola vulcanizada. Feito para a rua e para o skate.',det:['Cabedal reforçado na biqueira','Sola vulcanizada com grip','Cano baixo · skate e rua','Resiste ao uso diário na prancha']},
+ {id:'p10',name:'Concreto Pro',cat:'Skate',price:7500,stock:8,img:'https://images.pexels.com/photos/1502352/pexels-photo-1502352.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Camurça bordeaux com sola aderente. Controlo total na prancha.',det:['Cabedal em camurça','Sola aderente de contacto total','Cano baixo · skate','Apoio firme no ollie e no flip']},
+ {id:'p11',name:'Costa Skate',cat:'Skate',price:7100,stock:8,img:'https://images.pexels.com/photos/8857822/pexels-photo-8857822.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Leve e resistente, com biqueira reforçada. Para truques e para o dia a dia.',det:['Biqueira reforçada','Leve e flexível','Cano baixo · skate','Ideal para truques e rua']},
+ {id:'p12',name:'Asfalto High',cat:'Skate',price:7400,stock:8,img:'https://images.pexels.com/photos/5560396/pexels-photo-5560396.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Cano alto, cabedal em lona e sola em borracha. Estilo de rua sem esforço.',det:['Cano alto em lona','Sola em borracha vulcanizada','Estilo de rua','Ideal para skate e passeio']},
+ {id:'p13',name:'Aro High',cat:'Basquetebol',price:11500,stock:5,img:'https://images.pexels.com/photos/12306281/pexels-photo-12306281.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Amortecimento de impacto e tornozelo seguro. Para o jogo e para a rua.',det:['Amortecimento de impacto no calcanhar','Cano alto com apoio ao tornozelo','Sola com tração multidirecional','Ideal para basquetebol']},
+ {id:'p14',name:'Tabela Mid',cat:'Basquetebol',price:9900,stock:6,img:'https://images.pexels.com/photos/34476091/pexels-photo-34476091.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Tração multidirecional e cabedal respirável. Rápido em qualquer campo.',det:['Tração multidirecional','Cabedal respirável','Cano médio · basquetebol','Ideal para jogo rápido']},
+ {id:'p15',name:'Lance Low',cat:'Basquetebol',price:8900,stock:6,img:'https://images.pexels.com/photos/12879628/pexels-photo-12879628.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Cano baixo, sola com grip e amortecimento firme. Preciso em cada lance.',det:['Cano baixo e leve','Sola com grip total','Amortecimento firme','Ideal para lançamentos e jogo rápido']},
+ {id:'p16',name:'Salto High',cat:'Basquetebol',price:12500,stock:5,img:'https://images.pexels.com/photos/15693841/pexels-photo-15693841.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Cano alto clássico em azul e laranja. Presença total dentro e fora do campo.',det:['Cano alto clássico','Cabedal em pele','Sola com tração de campo','Ideal para jogo e estilo de rua']}
+];
+const ARTICLES=[
+ {id:'a1',tag:'Detalhes',title:'Os detalhes que fazem a distância',img:'https://images.pexels.com/photos/5604021/pexels-photo-5604021.jpeg?auto=compress&cs=tinysrgb&w=1200',alt:'Homem a apertar os atacadores no passeio',text:'Há um momento antes de cada corrida que quase ninguém vê: o nó bem apertado, a meia certa, o primeiro passo a testar a sola. São os detalhes que fazem a distância — não o relógio, não a meta. Um bom ténis não se sente nos primeiros cem metros; sente-se no quilómetro dez, quando o pé ainda está fresco e a cabeça ainda está leve. É por isso que escolhemos cada modelo como se fosse para nós: apertamos, andamos, corremos, e só depois pomos na loja.'},
+ {id:'a2',tag:'Movimento',title:'Encontrar o teu ritmo',img:'https://images.pexels.com/photos/16685591/pexels-photo-16685591.jpeg?auto=compress&cs=tinysrgb&w=1200',alt:'Pé com ténis clássico no passeio molhado da cidade',text:'Cada pessoa tem um ritmo — e cada ritmo pede um par diferente. Há quem corra ao nascer do sol na Marginal, há quem atravesse a cidade a pé todos os dias, há quem viva no skate e há quem só queira um par que dure. O ritmo não se impõe; encontra-se. E encontra-se a andar: na primeira volta ao quarteirão, no caminho para o trabalho, no jogo de domingo. A PASSO existe para esse encontro — para que o teu par acompanhe o teu ritmo, e não o contrário.'}
+];
+const DEFAULT_SETTINGS={announcement:'Entrega grátis em Maputo em compras acima de 5.000 MT',whatsapp:'258840000000',email:'ola@passo.co.mz',address:'Av. Julius Nyerere, Polana, Maputo',delivery:{'Maputo':150,'Matola':200,'Províncias':350,'Levantamento na loja':0},freeAbove:5000};
+/* ---------- store ---------- */
+function load(k,fb){try{const v=localStorage.getItem(LS+k);return v?JSON.parse(v):fb}catch(e){return fb}}
+function save(k,v){localStorage.setItem(LS+k,JSON.stringify(v))}
+function products(){const saved=load('products',null);if(!saved)return DEFAULT_PRODUCTS;const m={};DEFAULT_PRODUCTS.forEach(p=>m[p.id]=p);saved.forEach(p=>{if(p&&p.id)m[p.id]=Object.assign({},m[p.id]||{},p)});return Object.values(m)}
+function settings(){return Object.assign({},DEFAULT_SETTINGS,load('settings',{}))}
+function users(){return load('users',[])}
+function orders(){return load('orders',[])}
+function chats(){return load('chats',{})}
+function session(){return load('session',null)}
+function setSession(e){e?save('session',e):localStorage.removeItem(LS+'session')}
+function me(){const s=session();return s?users().find(u=>u.email===s)||null:null}
+function isAdmin(u){return u&&users().length&&users()[0].email===u.email}
+function fmt(n){return n.toLocaleString('pt-MZ').replace(/,/g,'.')+' MT'}
+async function sha(str){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
+function nowHM(){const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+function todayStr(){const d=new Date();return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear()}
+/* ---------- cart ---------- */
+function cartKey(){const u=me();return u?'cart_'+u.email:'cart_guest'}
+function cart(){return load(cartKey(),[])}
+function saveCart(c){save(cartKey(),c);renderBag()}
+function cartCount(){return cart().reduce((a,i)=>a+i.qty,0)}
+function renderBag(){document.getElementById('bagCount').textContent=cartCount();const n=document.getElementById('cartN');if(n)n.textContent=cartCount()}
+function addToBag(id,size,qty){
+  const u=me();
+  if(!u){toast('Cria a tua conta para adicionar ao saco.');location.hash='#/conta';return}
+  if(!size){toast('Escolhe o tamanho primeiro.');return}
+  const p=products().find(x=>x.id===id);if(!p)return;
+  if(p.stock<=0){toast('Este modelo está esgotado.');return}
+  const c=cart();const ex=c.find(i=>i.id===id&&i.size===size);
+  if(ex){ex.qty=Math.min(ex.qty+(qty||1),p.stock)}else{c.push({id,size,qty:qty||1})}
+  saveCart(c);toast(p.name+' (n.º '+size+') no saco.');openCart();
+}
+function setQty(idx,d){const c=cart();c[idx].qty+=d;if(c[idx].qty<=0)c.splice(idx,1);saveCart(c);renderCart()}
+function removeLine(idx){const c=cart();c.splice(idx,1);saveCart(c);renderCart()}
+/* ---------- navigation ---------- */
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));const el=document.getElementById('view-'+id);if(el)el.classList.add('on');window.scrollTo(0,0)}
+function goConta(){location.hash='#/conta'}
+function openMenu(){document.getElementById('menuOv').classList.add('on')}
+function closeMenu(){document.getElementById('menuOv').classList.remove('on')}
+function openCart(){renderCart();document.getElementById('scrim').classList.add('on');document.getElementById('cartDrawer').classList.add('on')}
+function closeDrawers(){document.getElementById('scrim').classList.remove('on');document.getElementById('cartDrawer').classList.remove('on')}
+function renderCart(){
+  const c=cart(),ps=products(),body=document.getElementById('cartBody'),foot=document.getElementById('cartFoot');
+  if(!c.length){body.innerHTML='<div class="empty"><div class="big">O teu saco está vazio.</div><p>Encontra algo para o teu dia a dia.</p><p style="margin-top:18px"><a class="btn dark" href="#/loja" onclick="closeDrawers()">Explorar ténis</a></p></div>';foot.innerHTML='';return}
+  let sub=0;
+  body.innerHTML=c.map((i,ix)=>{const p=ps.find(x=>x.id===i.id);if(!p)return'';sub+=p.price*i.qty;
+    return '<div class="cartline"><img src="'+p.img+'" alt="'+esc(p.name)+'"><div><div class="nm">'+esc(p.name)+'</div><div class="meta">'+esc(p.cat)+' · n.º '+i.size+' · '+fmt(p.price)+'</div><div class="qty"><button onclick="setQty('+ix+',-1)">−</button><span>'+i.qty+'</span><button onclick="setQty('+ix+',1)">+</button><button onclick="removeLine('+ix+')" style="border:0;color:#8a2f1d">Remover</button></div></div><b>'+fmt(p.price*i.qty)+'</b></div>'}).join('');
+  foot.innerHTML='<div class="row"><span>Subtotal</span><b>'+fmt(sub)+'</b></div><div class="row"><span>Entrega</span><span>calculada no fim</span></div><button class="btn dark" onclick="goCheckout()">Finalizar compra →</button><p class="note">Precisas de conta para finalizar.</p>';
+}
+function goCheckout(){closeDrawers();location.hash='#/finalizar'}
+/* ---------- hero rotation ---------- */
+let heroIdx=0,heroTimer=null;
+function heroGo(i){const s=document.querySelectorAll('.hero .slide'),d=document.querySelectorAll('#heroDots i');if(!s.length)return;s.forEach(x=>x.classList.remove('on'));d.forEach(x=>x.classList.remove('on'));heroIdx=i;s[i].classList.add('on');d[i].classList.add('on')}
+function heroStart(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;heroTimer=setInterval(()=>heroGo((heroIdx+1)%3),5000)}
+</script>
+<script>
+/* ---------- render: home / loja / produto ---------- */
+let selSize={};
+function cardHTML(p,featured){
+  const sel=selSize[p.id]||null;
+  return '<article class="card"><a href="#/produto/'+p.id+'"><div class="ph"><img src="'+p.img+'" alt="'+esc(p.name)+'" loading="lazy">'+(featured?'<span class="tag">Novo</span>':'')+(p.stock<=0?'<span class="tag sale">Esgotado</span>':'')+'</div></a><div class="bd"><span class="cat">'+esc(p.cat)+'</span><a href="#/produto/'+p.id+'"><h3>'+esc(p.name)+'</h3></a><div class="price">'+fmt(p.price)+'</div><div class="sizes">'+SIZES.map(s=>'<button class="size'+(sel===s?' sel':'')+'" onclick="pickSize(\''+p.id+'\','+s+',this)">'+s+'</button>').join('')+'</div><button class="add" onclick="addToBag(\''+p.id+'\',selSize[\''+p.id+'\']||null)"><span>Adicionar ao saco</span><span>→</span></button></div></article>';
+}
+function pickSize(id,s,btn){selSize[id]=s;const card=btn.closest('.card');card.querySelectorAll('.size').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel')}
+function renderHome(){
+  const ps=products();
+  document.getElementById('newGrid').innerHTML=ps.filter(p=>p.cat==='Corrida').slice(0,4).map(p=>cardHTML(p,true)).join('');
+  document.getElementById('catGrid').innerHTML=CATS.map(c=>'<a class="catcard" href="#/loja?cat='+encodeURIComponent(c.name)+'"><img src="'+c.img+'" alt="'+esc(c.alt)+'" loading="lazy"><div class="lb"><b>'+esc(c.name)+'</b><span>Ver →</span></div></a>').join('');
+  document.getElementById('journalHome').innerHTML=ARTICLES.map(a=>'<a class="jcard" href="#/artigo/'+a.id+'"><img src="'+a.img+'" alt="'+esc(a.alt)+'" loading="lazy"><div class="bd"><span class="eyebrow">'+esc(a.tag)+'</span><h3>'+esc(a.title)+'</h3><p>'+esc(a.text.slice(0,140))+'…</p></div></a>').join('');
+  const st=settings();
+  document.getElementById('annBar').innerHTML=esc(st.announcement);
+  document.getElementById('storeAddr').textContent=st.address;
+  document.getElementById('footAddr').textContent=st.address;
+  document.getElementById('helpWa').textContent=st.whatsapp.replace(/(\d{3})(\d{2})(\d{3})(\d{4})/,'$1 $2 $3 $4');
+  document.getElementById('helpMail').textContent=st.email;
+  document.getElementById('helpAddr').textContent=st.address;
+}
+let shopCat='Todos';
+function renderShop(){
+  const ps=products();
+  const cats=['Todos','Corrida','Lifestyle','Skate','Basquetebol'];
+  document.getElementById('shopFilters').innerHTML=cats.map(c=>'<button class="chip'+(shopCat===c?' on':'')+'" onclick="shopCat=\''+c+'\';renderShop()">'+c+'</button>').join('');
+  const list=shopCat==='Todos'?ps:ps.filter(p=>p.cat===shopCat);
+  document.getElementById('shopTitle').textContent=shopCat==='Todos'?'Todos os ténis.':shopCat+'.';
+  document.getElementById('shopCount').textContent=list.length+' modelos';
+  document.getElementById('shopGrid').innerHTML=list.map(p=>cardHTML(p,false)).join('')||'<p style="color:var(--ink2)">Sem modelos nesta categoria.</p>';
+}
+function renderProduct(id){
+  const p=products().find(x=>x.id===id);
+  const root=document.getElementById('productDetail');
+  if(!p){root.innerHTML='<h1>Modelo não encontrado.</h1><p class="sub"><a href="#/loja">Voltar à loja →</a></p>';return}
+  const rel=products().filter(x=>x.cat===p.cat&&x.id!==p.id).slice(0,4);
+  const sel=selSize[p.id]||null;
+  root.innerHTML='<p class="eyebrow"><a href="#/loja">Loja</a> · '+esc(p.cat)+'</p><div class="pd"><div class="ph"><img src="'+p.img+'" alt="'+esc(p.name)+'"></div><div><h1>'+esc(p.name)+'</h1><div class="price">'+fmt(p.price)+'</div><p class="desc">'+esc(p.desc)+'</p><div class="lab">Tamanho · EU</div><div class="sizes">'+SIZES.map(s=>'<button class="size'+(sel===s?' sel':'')+'" onclick="pickSize(\''+p.id+'\','+s+',this)">'+s+'</button>').join('')+'</div><p style="font-size:13px;color:var(--ink2);margin-top:10px">'+(p.stock>0?'Em stock: '+p.stock+' pares':'Esgotado — fala connosco no chat.')+'</p><div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="btn dark" onclick="addToBag(\''+p.id+'\',selSize[\''+p.id+'\']||null)">Adicionar ao saco</button><button class="btn line" onclick="openChat()">Perguntar no chat</button></div><div class="lab">Detalhes</div><ul class="det">'+p.det.map(d=>'<li>'+esc(d)+'</li>').join('')+'</ul></div></div><div class="rel"><div class="sec-head"><div><p class="eyebrow">Também podes gostar</p><h2>Mais '+esc(p.cat)+'.</h2></div><a class="more" href="#/loja?cat='+encodeURIComponent(p.cat)+'">Ver todos →</a></div><div class="grid">'+rel.map(x=>cardHTML(x,false)).join('')+'</div></div>';
+}
+function renderJournal(){
+  document.getElementById('journalList').innerHTML=ARTICLES.map(a=>'<a class="jcard" href="#/artigo/'+a.id+'"><img src="'+a.img+'" alt="'+esc(a.alt)+'" loading="lazy"><div class="bd"><span class="eyebrow">'+esc(a.tag)+'</span><h3>'+esc(a.title)+'</h3><p>'+esc(a.text.slice(0,160))+'…</p></div></a>').join('');
+}
+function renderArticle(id){
+  const a=ARTICLES.find(x=>x.id===id);
+  const root=document.getElementById('articleDetail');
+  if(!a){root.innerHTML='<h1>Artigo não encontrado.</h1><p class="sub"><a href="#/diario">Voltar ao diário →</a></p>';return}
+  root.innerHTML='<p class="eyebrow"><a href="#/diario">Diário</a> · '+esc(a.tag)+'</p><h1 style="max-width:20ch">'+esc(a.title)+'</h1><img src="'+a.img+'" alt="'+esc(a.alt)+'" style="margin-top:26px;width:100%"><p style="max-width:62ch;margin-top:26px;font-size:17px;line-height:1.8">'+esc(a.text)+'</p><p style="margin-top:30px"><a class="btn dark" href="#/loja">Ver a coleção</a></p>';
+}
+/* ---------- conta ---------- */
+let acctTab='encomendas';
+function renderAccount(){
+  const root=document.getElementById('accountRoot');
+  const u=me();
+  if(!u){
+    root.innerHTML='<div class="form"><p class="eyebrow" style="text-align:center">Minha conta</p><h1 style="text-align:center">Entra ou cria a tua conta.</h1><p class="note">A primeira conta criada nesta loja fica com a gerência.</p><div id="authMsg"></div><label>Email</label><input id="auEmail" type="email" placeholder="o teu email"><label>Palavra-passe</label><input id="auPass" type="password" placeholder="mínimo 6 caracteres"><button class="btn dark" onclick="doLogin()">Entrar</button><button class="btn line" onclick="doRegister()">Criar conta</button><p class="note">A tua conta guarda as encomendas e o chat com a loja.</p></div>';
+    return;
+  }
+  const myOrders=orders().filter(o=>o.email===u.email);
+  const admin=isAdmin(u);
+  let body='';
+  if(acctTab==='encomendas'){
+    body=myOrders.length?myOrders.map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:10px;font-size:14px">'+o.items.map(i=>{const p=products().find(x=>x.id===i.id);return p?esc(p.name)+' (n.º '+i.size+') × '+i.qty:''}).filter(Boolean).join(' · ')+'</p><p style="margin-top:6px"><b>'+fmt(o.total)+'</b> · '+esc(o.deliveryLabel)+'</p><p style="margin-top:10px"><a class="mini" href="#/encomenda/'+o.id+'">Ver recibo</a> <button class="mini" onclick="openChat()">Falar no chat</button></p></div>').join(''):'<p style="color:var(--ink2)">Ainda não tens encomendas. <a href="#/loja" style="border-bottom:1px solid">Ver os ténis →</a></p>';
+  }else if(acctTab==='dados'){
+    body='<div class="form" style="margin:0;max-width:420px"><label>Nome</label><input id="uName" value="'+esc(u.name||'')+'"><label>Telefone</label><input id="uPhone" value="'+esc(u.phone||'')+'"><button class="btn dark" onclick="saveProfile()">Guardar dados</button><div id="profMsg"></div></div>';
+  }else{
+    body='<p style="color:var(--ink2)">O chat da loja abre em ecrã inteiro. As tuas mensagens ficam guardadas na tua conta.</p><p style="margin-top:16px"><button class="btn dark" onclick="openChat()">Abrir o chat</button></p>';
+  }
+  root.innerHTML='<p class="eyebrow">Minha conta</p><h1>Olá, '+esc(u.name||u.email)+'.</h1><div class="acct"><div class="side"><a href="#" onclick="acctTab=\'encomendas\';renderAccount();return false" class="'+(acctTab==='encomendas'?'on':'')+'">Minhas encomendas</a><a href="#" onclick="acctTab=\'dados\';renderAccount();return false" class="'+(acctTab==='dados'?'on':'')+'">Os meus dados</a><a href="#" onclick="acctTab=\'chat\';renderAccount();return false" class="'+(acctTab==='chat'?'on':'')+'">Chat com a loja</a>'+(admin?'<a href="#/admin">Painel de gerência →</a>':'')+'<a href="#" onclick="doLogout();return false">Sair</a></div><div>'+body+'</div></div>';
+}
+async function doRegister(){
+  const email=document.getElementById('auEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('auPass').value;
+  const msg=document.getElementById('authMsg');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.innerHTML='<div class="err">Escreve um email válido.</div>';return}
+  if(pass.length<6){msg.innerHTML='<div class="err">A palavra-passe precisa de 6 caracteres ou mais.</div>';return}
+  const us=users();
+  if(us.find(u=>u.email===email)){msg.innerHTML='<div class="err">Já existe uma conta com este email. Entra com a palavra-passe.</div>';return}
+  us.push({email,pass:await sha(pass),name:'',phone:'',created:todayStr()});
+  save('users',us);setSession(email);
+  toast(us.length===1?'Conta criada — és a gerência desta loja.':'Conta criada. Bem-vindo à PASSO.');
+  renderAccount();renderBag();
+}
+async function doLogin(){
+  const email=document.getElementById('auEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('auPass').value;
+  const msg=document.getElementById('authMsg');
+  const u=users().find(x=>x.email===email);
+  if(!u||u.pass!==await sha(pass)){msg.innerHTML='<div class="err">Email ou palavra-passe errados.</div>';return}
+  setSession(email);toast('Bem-vindo de volta.');renderAccount();renderBag();
+}
+function doLogout(){setSession(null);renderBag();location.hash='#/inicio';renderAccount();toast('Sessão terminada.')}
+function saveProfile(){
+  const us=users();const u=me();if(!u)return;
+  const i=us.findIndex(x=>x.email===u.email);
+  us[i].name=document.getElementById('uName').value.trim();
+  us[i].phone=document.getElementById('uPhone').value.trim();
+  save('users',us);document.getElementById('profMsg').innerHTML='<div class="ok">Dados guardados.</div>';
+}
+function subscribeNews(){
+  const e=document.getElementById('newsEmail').value.trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){toast('Escreve um email válido.');return}
+  const list=load('newsletter',[]);if(!list.includes(e)){list.push(e);save('newsletter',list)}
+  document.getElementById('newsEmail').value='';toast('Subscrição registada. Obrigado!');
+}
+</script>
+<script>
+/* ---------- finalizar compra ---------- */
+let coMethod='Maputo';
+function renderCheckout(){
+  const root=document.getElementById('checkoutRoot');
+  const u=me();
+  if(!u){root.innerHTML='<div class="form"><p class="eyebrow" style="text-align:center">Finalizar compra</p><h1 style="text-align:center">Precisas de conta para finalizar.</h1><p class="note">Cria a tua conta — demora um minuto.</p><p style="text-align:center;margin-top:20px"><a class="btn dark" href="#/conta">Criar conta / Entrar</a></p></div>';return}
+  const c=cart();
+  if(!c.length){root.innerHTML='<div class="form"><p class="eyebrow" style="text-align:center">Finalizar compra</p><h1 style="text-align:center">O teu saco está vazio.</h1><p style="text-align:center;margin-top:20px"><a class="btn dark" href="#/loja">Ver os ténis</a></p></div>';return}
+  const prev={};['coName','coPhone','coAddr','coNotes'].forEach(id=>{const el=document.getElementById(id);if(el)prev[id]=el.value});
+  const ps=products(),st=settings();
+  let sub=0;
+  const lines=c.map(i=>{const p=ps.find(x=>x.id===i.id);if(!p)return'';sub+=p.price*i.qty;return '<div class="cartline"><img src="'+p.img+'" alt="'+esc(p.name)+'"><div><div class="nm">'+esc(p.name)+'</div><div class="meta">'+esc(p.cat)+' · n.º '+i.size+' × '+i.qty+'</div></div><b>'+fmt(p.price*i.qty)+'</b></div>'}).join('');
+  const fee=coMethod==='Maputo'&&sub>=st.freeAbove?0:st.delivery[coMethod];
+  root.innerHTML='<p class="eyebrow">Finalizar compra</p><h1>Os teus dados e a entrega.</h1><div style="display:grid;grid-template-columns:1.2fr .8fr;gap:36px;margin-top:26px" class="co"><div><div class="form" style="margin:0;max-width:480px"><label>Nome completo</label><input id="coName" value="'+esc(prev.coName!==undefined?prev.coName:(u.name||''))+'"><label>Telefone (M-Pesa)</label><input id="coPhone" value="'+esc(prev.coPhone!==undefined?prev.coPhone:(u.phone||''))+'" placeholder="84 / 85 / 86 / 87 …"><label>Entrega</label><div class="filters" style="margin:8px 0">'+Object.keys(st.delivery).map(m=>'<button class="chip'+(coMethod===m?' on':'')+'" onclick="coMethod=\''+m+'\';renderCheckout()">'+m+' · '+(m==='Maputo'&&sub>=st.freeAbove?'Grátis':fmt(st.delivery[m]))+'</button>').join('')+'</div><label>Morada / ponto de referência</label><textarea id="coAddr" placeholder="Bairro, rua, casa ou ponto conhecido">'+esc(prev.coAddr||'')+'</textarea><label>Notas (opcional)</label><input id="coNotes" placeholder="Ex.: ligar antes de entregar" value="'+esc(prev.coNotes||'')+'"><div id="coMsg"></div><button class="btn dark" onclick="placeOrder('+sub+','+fee+')">Confirmar encomenda · '+fmt(sub+fee)+'</button><p class="note">O pagamento é por M-Pesa. Depois de confirmares, a loja confirma o pagamento no chat e a entrega segue.</p></div></div><div><div class="ord"><h3 style="font-size:20px">Resumo</h3>'+lines+'<div style="margin-top:14px"><div class="row" style="display:flex;justify-content:space-between;font-size:14px"><span>Subtotal</span><b>'+fmt(sub)+'</b></div><div class="row" style="display:flex;justify-content:space-between;font-size:14px"><span>Entrega · '+esc(coMethod)+'</span><b>'+(fee===0?'Grátis':fmt(fee))+'</b></div><div class="row" style="display:flex;justify-content:space-between;font-size:17px;margin-top:8px"><span>Total</span><b>'+fmt(sub+fee)+'</b></div></div></div></div></div>';
+}
+function placeOrder(sub,fee){
+  const u=me();if(!u)return;
+  const name=document.getElementById('coName').value.trim();
+  const phone=document.getElementById('coPhone').value.trim();
+  const addr=document.getElementById('coAddr').value.trim();
+  const notes=document.getElementById('coNotes').value.trim();
+  const msg=document.getElementById('coMsg');
+  if(name.length<2){msg.innerHTML='<div class="err">Escreve o teu nome.</div>';return}
+  if(!/^8[4-7]\d{7}$/.test(phone.replace(/\s/g,''))){msg.innerHTML='<div class="err">Escreve um número M-Pesa válido (84, 85, 86 ou 87 + 7 dígitos).</div>';return}
+  const id='PASSO-'+Date.now().toString(36).toUpperCase();
+  const os=orders();
+  os.push({id,email:u.email,name,phone,addr,notes,items:cart(),subtotal:sub,delivery:fee,deliveryLabel:coMethod,total:sub+fee,status:'aguarda pagamento',date:todayStr()+' '+nowHM(),stockMoved:false});
+  save('orders',os);
+  const ch=chats();(ch[u.email]=ch[u.email]||[]).push({from:'user',kind:'text',text:'Olá! Fiz a encomenda '+id+' ('+fmt(sub+fee)+'). Como confirmo o pagamento?',time:nowHM(),seen:false});save('chats',ch);
+  saveCart([]);location.hash='#/encomenda/'+id;
+}
+function renderOrder(id){
+  const o=orders().find(x=>x.id===id);
+  const root=document.getElementById('orderRoot');
+  const u=me();
+  if(!o||!u||(o.email!==u.email&&!isAdmin(u))){root.innerHTML='<h1>Encomenda não encontrada.</h1><p class="sub"><a href="#/conta">Ver as minhas encomendas →</a></p>';return}
+  const ps=products();
+  const lines=o.items.map(i=>{const p=ps.find(x=>x.id===i.id);return p?'<div class="cartline"><img src="'+p.img+'" alt="'+esc(p.name)+'"><div><div class="nm">'+esc(p.name)+'</div><div class="meta">'+esc(p.cat)+' · n.º '+i.size+' × '+i.qty+'</div></div><b>'+fmt(p.price*i.qty)+'</b></div>':''}).join('');
+  root.innerHTML='<p class="eyebrow">Encomenda</p><h1>'+o.id+'</h1><p style="margin-top:8px"><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pagamento confirmado':'Aguarda pagamento')+'</span> <span style="color:var(--ink2);font-size:14px">'+o.date+'</span></p>'+(o.status==='pago'?'<div class="ok">Pagamento confirmado. Obrigado! A tua encomenda segue para entrega. Guarda este recibo.</div>':'<div class="ord" style="margin-top:20px"><b>Como pagar:</b> a loja vai confirmar o pagamento por M-Pesa no chat. Abre o chat e envia o comprovativo — assim que confirmarmos, marcamos a encomenda como paga e a entrega segue.</div>')+'<div class="ord" style="margin-top:20px">'+lines+'<div style="margin-top:14px"><div style="display:flex;justify-content:space-between;font-size:14px"><span>Subtotal</span><b>'+fmt(o.subtotal)+'</b></div><div style="display:flex;justify-content:space-between;font-size:14px"><span>Entrega · '+esc(o.deliveryLabel)+'</span><b>'+(o.delivery===0?'Grátis':fmt(o.delivery))+'</b></div><div style="display:flex;justify-content:space-between;font-size:17px;margin-top:8px"><span>Total</span><b>'+fmt(o.total)+'</b></div></div></div><p style="color:var(--ink2);font-size:14px">Entregar a: '+esc(o.name)+' · '+esc(o.phone)+'<br>'+esc(o.addr||'')+'</p><p style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn dark" onclick="openChat()">Abrir o chat</button><a class="btn line" href="#/conta">Minhas encomendas</a></p>';
+}
+/* ---------- admin ---------- */
+let admTab='resumo';
+function renderAdmin(){
+  const root=document.getElementById('adminRoot');
+  const u=me();
+  if(!u){root.innerHTML='<div class="form"><h1 style="text-align:center">Gerência</h1><p class="note">Entra com a conta da gerência (a primeira conta criada na loja).</p><p style="text-align:center;margin-top:20px"><a class="btn dark" href="#/conta">Entrar</a></p></div>';return}
+  if(!isAdmin(u)){root.innerHTML='<div class="form"><h1 style="text-align:center">Sem acesso.</h1><p class="note">Só a conta da gerência entra neste painel.</p><p style="text-align:center;margin-top:20px"><a class="btn dark" href="#/conta">Voltar à minha conta</a></p></div>';return}
+  const os=orders(),us=users(),ps=products();
+  const paid=os.filter(o=>o.status==='pago');
+  const total=paid.reduce((a,o)=>a+o.total,0);
+  let body='';
+  if(admTab==='resumo'){
+    body='<div class="kpi"><div><b>'+fmt(total)+'</b><span>vendas pagas</span></div><div><b>'+os.length+'</b><span>encomendas</span></div><div><b>'+us.length+'</b><span>clientes</span></div><div><b>'+ps.length+'</b><span>modelos</span></div></div><h3 style="font-size:22px;margin-bottom:12px">Últimas encomendas</h3>'+(os.length?os.slice(-5).reverse().map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:8px;font-size:14px">'+esc(o.name)+' · '+esc(o.phone)+' · <b>'+fmt(o.total)+'</b></p><p style="margin-top:8px"><a class="mini" href="#/encomenda/'+o.id+'">Ver</a> <button class="mini" onclick="togglePaid(\''+o.id+'\')">'+(o.status==='pago'?'Voltar a aguardar':'Marcar como pago')+'</button></p></div>').join(''):'<p style="color:var(--ink2)">Ainda sem encomendas.</p>');
+  }else if(admTab==='produtos'){
+    body='<p style="margin-bottom:16px"><button class="btn dark" onclick="newProduct()">+ Novo modelo</button></p><table class="tb"><tr><th></th><th>Modelo</th><th>Categoria</th><th>Preço</th><th>Stock</th><th></th></tr>'+ps.map(p=>'<tr><td><img src="'+p.img+'" alt=""></td><td><b>'+esc(p.name)+'</b><br><span style="color:var(--ink2);font-size:12px">'+p.id+'</span></td><td>'+esc(p.cat)+'</td><td>'+fmt(p.price)+'</td><td>'+p.stock+'</td><td><button class="mini" onclick="editProduct(\''+p.id+'\')">Editar</button> <button class="mini danger" onclick="delProduct(\''+p.id+'\')">Apagar</button></td></tr>').join('')+'</table><div id="prodEdit" style="margin-top:22px"></div>';
+  }else if(admTab==='encomendas'){
+    body=os.length?os.slice().reverse().map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:8px;font-size:14px">'+esc(o.name)+' · '+esc(o.phone)+' · '+esc(o.deliveryLabel)+'<br>'+o.items.map(i=>{const p=ps.find(x=>x.id===i.id);return p?esc(p.name)+' (n.º '+i.size+') × '+i.qty:''}).filter(Boolean).join(' · ')+'</p><p style="margin-top:6px"><b>'+fmt(o.total)+'</b></p><p style="margin-top:10px"><a class="mini" href="#/encomenda/'+o.id+'">Ver recibo</a> <button class="mini" onclick="togglePaid(\''+o.id+'\')">'+(o.status==='pago'?'Voltar a aguardar':'Marcar como pago')+'</button> <button class="mini" onclick="openChat(\''+o.email+'\')">Chat</button></p></div>').join(''):'<p style="color:var(--ink2)">Ainda sem encomendas.</p>';
+  }else if(admTab==='clientes'){
+    body='<table class="tb"><tr><th>Cliente</th><th>Email</th><th>Telefone</th><th>Desde</th><th>Encomendas</th></tr>'+us.map(x=>'<tr><td>'+esc(x.name||'—')+'</td><td>'+esc(x.email)+'</td><td>'+esc(x.phone||'—')+'</td><td>'+esc(x.created||'')+'</td><td>'+os.filter(o=>o.email===x.email).length+'</td></tr>').join('')+'</table>';
+  }else if(admTab==='conversas'){
+    const ch=chats();
+    const keys=Object.keys(ch).filter(k=>(ch[k]||[]).length);
+    body=keys.length?keys.map(k=>{const last=ch[k][ch[k].length-1];const un=ch[k].filter(m=>m.from==='user'&&!m.seen).length;return '<div class="ord"><div class="top"><b>'+esc(k)+'</b>'+(un?'<span class="pill wait">'+un+' nova(s)</span>':'')+'</div><p style="margin-top:8px;font-size:14px;color:var(--ink2)">'+esc(last.kind==='text'?last.text:(last.kind==='image'?'[Foto]':'[Áudio]'))+'</p><p style="margin-top:10px"><button class="mini" onclick="openChat(\''+k+'\')">Abrir conversa</button></p></div>'}).join(''):'<p style="color:var(--ink2)">Ainda sem conversas.</p>';
+  }else if(admTab==='definicoes'){
+    const st=settings();
+    body='<div class="form" style="margin:0;max-width:520px"><label>Frase do topo (anúncio)</label><input id="stAnn" value="'+esc(st.announcement)+'"><label>WhatsApp (só números)</label><input id="stWa" value="'+esc(st.whatsapp)+'"><label>Email da loja</label><input id="stMail" value="'+esc(st.email)+'"><label>Morada</label><input id="stAddr" value="'+esc(st.address)+'"><label>Entrega grátis em Maputo a partir de (MT)</label><input id="stFree" type="number" value="'+st.freeAbove+'"><label>Taxa Maputo (MT)</label><input id="stD1" type="number" value="'+st.delivery['Maputo']+'"><label>Taxa Matola (MT)</label><input id="stD2" type="number" value="'+st.delivery['Matola']+'"><label>Taxa Províncias (MT)</label><input id="stD3" type="number" value="'+st.delivery['Províncias']+'"><button class="btn dark" onclick="saveSettings()">Guardar definições</button><div id="setMsg"></div></div>';
+  }
+  root.innerHTML='<p class="eyebrow">Gerência · PASSO</p><h1>Painel da loja.</h1><div class="adm"><div class="tabs"><a href="#" onclick="admTab=\'resumo\';renderAdmin();return false" class="'+(admTab==='resumo'?'on':'')+'">Resumo</a><a href="#" onclick="admTab=\'produtos\';renderAdmin();return false" class="'+(admTab==='produtos'?'on':'')+'">Produtos</a><a href="#" onclick="admTab=\'encomendas\';renderAdmin();return false" class="'+(admTab==='encomendas'?'on':'')+'">Encomendas</a><a href="#" onclick="admTab=\'clientes\';renderAdmin();return false" class="'+(admTab==='clientes'?'on':'')+'">Clientes</a><a href="#" onclick="admTab=\'conversas\';renderAdmin();return false" class="'+(admTab==='conversas'?'on':'')+'">Conversas</a><a href="#" onclick="admTab=\'definicoes\';renderAdmin();return false" class="'+(admTab==='definicoes'?'on':'')+'">Definições</a><a href="#/inicio">Ver a loja →</a></div><div>'+body+'</div></div>';
+}
+function togglePaid(id){
+  const os=orders();const o=os.find(x=>x.id===id);if(!o)return;
+  const ps=products();
+  if(o.status!=='pago'){
+    o.status='pago';
+    if(!o.stockMoved){o.items.forEach(i=>{const p=ps.find(x=>x.id===i.id);if(p)p.stock=Math.max(0,p.stock-i.qty)});o.stockMoved=true}
+    const ch=chats();(ch[o.email]=ch[o.email]||[]).push({from:'store',kind:'text',text:'Pagamento confirmado da encomenda '+o.id+' ('+fmt(o.total)+'). Obrigado! A tua encomenda segue para entrega.',time:nowHM(),seen:false});save('chats',ch);
+    toast('Encomenda marcada como paga.');
+  }else{
+    o.status='aguarda pagamento';
+    if(o.stockMoved){o.items.forEach(i=>{const p=ps.find(x=>x.id===i.id);if(p)p.stock+=i.qty});o.stockMoved=false}
+    toast('Encomenda voltou a aguardar pagamento.');
+  }
+  save('orders',os);save('products',ps);renderAdmin();
+}
+function saveSettings(){
+  const st=settings();
+  st.announcement=document.getElementById('stAnn').value.trim();
+  st.whatsapp=document.getElementById('stWa').value.replace(/\D/g,'');
+  st.email=document.getElementById('stMail').value.trim();
+  st.address=document.getElementById('stAddr').value.trim();
+  st.freeAbove=parseInt(document.getElementById('stFree').value)||5000;
+  st.delivery={'Maputo':parseInt(document.getElementById('stD1').value)||0,'Matola':parseInt(document.getElementById('stD2').value)||0,'Províncias':parseInt(document.getElementById('stD3').value)||0,'Levantamento na loja':0};
+  save('settings',st);document.getElementById('setMsg').innerHTML='<div class="ok">Definições guardadas.</div>';renderHome();
+}
+function editProduct(id){
+  const p=products().find(x=>x.id===id);if(!p)return;
+  document.getElementById('prodEdit').innerHTML='<div class="ord"><h3 style="font-size:20px">Editar · '+esc(p.name)+'</h3><div class="form" style="margin:0;max-width:480px"><label>Nome</label><input id="peName" value="'+esc(p.name)+'"><label>Categoria</label><select id="peCat">'+['Corrida','Lifestyle','Skate','Basquetebol'].map(c=>'<option'+(p.cat===c?' selected':'')+'>'+c+'</option>').join('')+'</select><label>Preço (MT)</label><input id="pePrice" type="number" value="'+p.price+'"><label>Stock (pares)</label><input id="peStock" type="number" value="'+p.stock+'"><label>Descrição</label><textarea id="peDesc">'+esc(p.desc)+'</textarea><label>Foto (por ficheiro)</label><input id="peFile" type="file" accept="image/*"><img id="pePrev" src="'+p.img+'" style="width:120px;margin-top:10px"><div id="peMsg"></div><button class="btn dark" onclick="saveProduct(\''+p.id+'\')">Guardar modelo</button></div></div>';
+  document.getElementById('peFile').addEventListener('change',e=>{
+    const f=e.target.files[0];if(!f)return;
+    if(f.size>3*1024*1024){document.getElementById('peMsg').innerHTML='<div class="err">A foto é muito grande (máx. 3 MB).</div>';return}
+    const r=new FileReader();r.onload=ev=>{document.getElementById('pePrev').src=ev.target.result};r.readAsDataURL(f);
+  });
+}
+function saveProduct(id){
+  const ps=products();const i=ps.findIndex(x=>x.id===id);if(i<0)return;
+  ps[i].name=document.getElementById('peName').value.trim()||ps[i].name;
+  ps[i].cat=document.getElementById('peCat').value;
+  ps[i].price=parseInt(document.getElementById('pePrice').value)||ps[i].price;
+  ps[i].stock=parseInt(document.getElementById('peStock').value)||0;
+  ps[i].desc=document.getElementById('peDesc').value.trim();
+  const prev=document.getElementById('pePrev');if(prev&&prev.src.startsWith('data:'))ps[i].img=prev.src;
+  save('products',ps);toast('Modelo guardado.');renderAdmin();
+}
+function newProduct(){
+  const ps=products();
+  ps.push({id:'p'+Date.now().toString(36),name:'Novo modelo',cat:'Lifestyle',price:5000,stock:5,img:'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1200',desc:'Descreve aqui o modelo.',det:['Cabedal resistente','Sola em borracha','Cano baixo · uso diário']});
+  save('products',ps);renderAdmin();toast('Modelo criado — edita os dados e a foto.');
+}
+function delProduct(id){
+  if(!confirm('Apagar este modelo da loja?'))return;
+  save('products',products().filter(p=>p.id!==id));renderAdmin();toast('Modelo apagado.');
+}
+/* ---------- chat ---------- */
+let chatWith=null,mediaRec=null,recChunks=[];
+function openChat(email){
+  const u=me();
+  if(!u){toast('Cria a tua conta para falar no chat.');location.hash='#/conta';return}
+  chatWith=isAdmin(u)?(email||u.email):u.email;
+  document.getElementById('chatWrap').classList.add('on');
+  renderChat();
+}
+function closeChat(){document.getElementById('chatWrap').classList.remove('on');if(admTab==='conversas')renderAdmin()}
+function chatRole(){const u=me();return isAdmin(u)&&chatWith!==u.email?'store':'user'}
+function renderChat(){
+  const ch=chats();const list=ch[chatWith]||[];
+  const u=me();const asStore=chatRole()==='store';
+  list.forEach(m=>{if(asStore&&m.from==='user')m.seen=true;if(!asStore&&m.from==='store')m.seen=true});
+  save('chats',ch);
+  const box=document.getElementById('chatMsgs');
+  document.getElementById('chatStatus').textContent=asStore?('Conversa com '+chatWith):'Chat da loja · responde em breve';
+  box.innerHTML=list.length?list.map(m=>{
+    const mine=asStore?m.from==='store':m.from==='user';
+    let inner='';
+    if(m.kind==='text')inner=esc(m.text);
+    else if(m.kind==='image')inner='<img src="'+m.data+'" alt="Foto enviada">';
+    else if(m.kind==='audio')inner='<audio controls src="'+m.data+'" style="width:200px"></audio>';
+    return '<div class="msg '+(mine?'me':'them')+'">'+inner+'<div class="t">'+m.time+(mine?(m.seen?' ✓✓':' ✓'):'')+'</div></div>';
+  }).join(''):'<div class="empty"><div class="big">Olá! 👋</div><p>Escreve a tua mensagem — a loja responde aqui.</p></div>';
+  box.scrollTop=box.scrollHeight;
+}
+function sendChat(){
+  const inp=document.getElementById('chatInput');const t=inp.value.trim();if(!t)return;
+  const ch=chats();(ch[chatWith]=ch[chatWith]||[]).push({from:chatRole(),kind:'text',text:t,time:nowHM(),seen:false});save('chats',ch);
+  inp.value='';renderChat();
+}
+function chatAttach(input){
+  const f=input.files[0];if(!f)return;
+  if(f.size>5*1024*1024){toast('O ficheiro é muito grande (máx. 5 MB).');input.value='';return}
+  const r=new FileReader();
+  r.onload=ev=>{
+    const ch=chats();(ch[chatWith]=ch[chatWith]||[]).push({from:chatRole(),kind:f.type.startsWith('audio')?'audio':'image',data:ev.target.result,time:nowHM(),seen:false});save('chats',ch);
+    renderChat();
+  };
+  r.readAsDataURL(f);input.value='';
+}
+async function toggleRec(){
+  const btn=document.getElementById('recBtn');
+  if(mediaRec&&mediaRec.state==='recording'){mediaRec.stop();btn.classList.remove('on');return}
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    recChunks=[];mediaRec=new MediaRecorder(stream);
+    mediaRec.ondataavailable=e=>recChunks.push(e.data);
+    mediaRec.onstop=()=>{
+      stream.getTracks().forEach(t=>t.stop());
+      const blob=new Blob(recChunks,{type:'audio/webm'});
+      const r=new FileReader();
+      r.onload=ev=>{const ch=chats();(ch[chatWith]=ch[chatWith]||[]).push({from:chatRole(),kind:'audio',data:ev.target.result,time:nowHM(),seen:false});save('chats',ch);renderChat()};
+      r.readAsDataURL(blob);
+    };
+    mediaRec.start();btn.classList.add('on');toast('A gravar áudio — toca outra vez para enviar.');
+  }catch(e){toast('Não foi possível aceder ao microfone.')}
+}
+/* ---------- router ---------- */
+function route(){
+  closeDrawers();closeMenu();
+  const h=(location.hash||'#/inicio').replace(/^#\/?/,'');
+  const parts=h.split('?');const path=parts[0];const q=new URLSearchParams(parts[1]||'');
+  if(path===''||path==='inicio'){show('inicio');renderHome()}
+  else if(path==='loja'){shopCat=q.get('cat')||'Todos';show('loja');renderShop()}
+  else if(path.startsWith('produto/')){show('produto');renderProduct(path.split('/')[1])}
+  else if(path==='diario'){show('diario');renderJournal()}
+  else if(path.startsWith('artigo/')){show('artigo');renderArticle(path.split('/')[1])}
+  else if(path==='sobre'){show('sobre')}
+  else if(path==='ajuda'){show('ajuda');renderHome()}
+  else if(path==='conta'){show('conta');renderAccount()}
+  else if(path==='admin'){show('admin');renderAdmin()}
+  else if(path==='finalizar'){show('finalizar');renderCheckout()}
+  else if(path.startsWith('encomenda/')){show('encomenda');renderOrder(path.split('/')[1])}
+  else{show('inicio');renderHome()}
+  renderBag();
+}
+window.addEventListener('hashchange',route);
+document.addEventListener('DOMContentLoaded',()=>{
+  renderHome();renderBag();
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){const v=document.getElementById('heroVideo');if(v)v.pause()}
+  else heroStart();
+  route();
+});
+</script>
+</body>
+</html>
