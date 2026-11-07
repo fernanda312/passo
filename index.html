@@ -39,8 +39,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2}
 @keyframes usweep{0%{background-position:100% 100%;background-size:100% 1px}45%{background-position:100% 100%;background-size:0% 1px}45.01%{background-position:0 100%;background-size:0% 1px}to{background-position:0 100%;background-size:100% 1px}}
 /* anúncio (letreiro) */
 .ann{position:relative;z-index:20;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white);color:var(--mut);font-size:12px;line-height:20px}
-.ann .mob{padding:8px 15px;text-align:center;white-space:nowrap}
-.ann .mob .msg{opacity:0;visibility:hidden;transition:opacity .15s,transform .15s,visibility 0s linear .15s;transform:translateY(-3px)}
+.ann .mob{position:relative;height:36px}
+.ann .mob .msg{position:absolute;left:0;right:0;top:0;padding:8px 15px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;visibility:hidden;transition:opacity .15s,transform .15s,visibility 0s linear .15s;transform:translateY(-3px)}
 .ann .mob .msg.on{opacity:1;visibility:visible;transition-delay:.15s;transform:none}
 .ann .desk{display:none}
 @media (min-width:1024px){
@@ -100,7 +100,7 @@ section.blk{padding-block:72px}
 @media (min-width:768px){.cats{grid-template-columns:1fr 1fr}}
 .catcard{position:relative;display:block;aspect-ratio:1/1;overflow:hidden}
 .catcard img{width:100%;height:100%;object-fit:cover;object-position:center}
-.catcard .veil{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(0,0,0,.25),rgba(0,0,0,.1),transparent);padding:0 24px;text-align:center}
+.catcard .veil{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.35),rgba(0,0,0,.25));padding:0 24px;text-align:center}
 .catcard .veil span{font-family:var(--serif);font-size:clamp(28px,3vw,48px);line-height:1.2;font-weight:500;color:#fff;text-transform:uppercase}
 /* coleção */
 .feat-title{font-family:var(--serif);font-size:clamp(28px,3vw,48px);line-height:1.2;font-weight:500;color:var(--black);margin-bottom:12px}
@@ -136,8 +136,8 @@ section.blk{padding-block:72px}
 .signoff{position:relative;height:60svh;overflow:hidden;margin-top:72px}
 @media (min-width:1024px){.signoff{margin-top:96px}}
 .signoff img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1)}
-.signoff .top-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),transparent)}
-.signoff .bot-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.1),transparent)}
+.signoff .top-veil{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.2),transparent)}
+.signoff .bot-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.3),transparent)}
 .signoff .addr{position:absolute;top:0;left:0;right:0;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:16px;padding:12px 15px;font-size:11px;line-height:20px;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-variant-numeric:tabular-nums}
 .signoff h2{position:absolute;left:0;right:0;bottom:0;padding:0 15px 12px;font-family:var(--serif);font-size:clamp(28px,3vw,48px);line-height:1.2;font-weight:500;color:#fff;text-transform:uppercase}
 .signoff h2 span{display:block}
@@ -655,9 +655,13 @@ function renderAnn(){
   const one='<span>'+msgs.map(m=>esc(m.t)+(m.link?' <a class="u-link" href="'+m.link+'"><span class="u-lab">'+esc(m.label)+'</span></a>':'')).join('</span><span>')+'</span>';
   desk.innerHTML='<div class="track">'+one+'</div><div class="track" aria-hidden="true">'+one+'</div>';
 }
+function annNext(){
+  const msgs=document.getElementById('annMob').querySelectorAll('.msg');
+  msgs.forEach((m,i)=>m.classList.toggle('on',i===annIdx));
+}
 function annStart(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  annTimer=setInterval(()=>{annIdx=(annIdx+1)%3;renderAnn()},4000);
+  annTimer=setInterval(()=>{annIdx=(annIdx+1)%3;annNext()},4000);
 }
 /* ---------- cabeçalho ---------- */
 function headerState(){
