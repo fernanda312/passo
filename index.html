@@ -67,7 +67,8 @@ header.site.scrolled{color:var(--ink);-webkit-backdrop-filter:blur(12px);backdro
 .cart-btn{border:1px solid currentColor;border-radius:10px;padding:5px 12px;margin-right:0}
 .cart-btn:hover{opacity:.7}
 /* hero */
-.hero{position:relative;background:var(--black);height:100svh;overflow:hidden}
+.hero{position:relative;background:var(--black);height:100svh;overflow:hidden;margin-top:-60px}
+@media (min-width:1024px){.hero{margin-top:-62px}}
 .hero video{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(1)}
 /* secções */
 section.blk{padding-block:72px}
@@ -578,8 +579,8 @@ table.tb{width:100%;border-collapse:collapse;font-size:14px}
   </header>
   <div class="chatmsgs" id="chatMsgs"></div>
   <div class="chatbar">
-    <input id="chatFile" type="file" accept="image/*,audio/*" style="display:none" onchange="chatAttach(this)">
-    <button class="ic" onclick="document.getElementById('chatFile').click()" title="Anexar foto ou áudio">＋</button>
+    <input id="chatFile" type="file" accept="image/*,audio/*" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none" onchange="chatAttach(this)">
+    <label class="ic" for="chatFile" title="Anexar foto ou áudio" style="display:grid;place-items:center">＋</label>
     <button class="ic rec" id="recBtn" onclick="toggleRec()" title="Gravar áudio">●</button>
     <input id="chatInput" placeholder="Escreve a tua mensagem…" onkeydown="if(event.key==='Enter')sendChat()">
     <button class="send" onclick="sendChat()">➤</button>
@@ -700,7 +701,7 @@ function renderCart(){
   let sub=0;
   body.innerHTML=c.map((i,ix)=>{const p=ps.find(x=>x.id===i.id);if(!p)return'';sub+=p.price*i.qty;
     return '<div class="cartline"><img src="'+p.img+'" alt="'+esc(p.name)+'"><div><div class="nm">'+esc(p.name)+'</div><div class="meta">'+esc(p.cat)+' · n.º '+i.size+' · '+fmt(p.price)+'</div><div class="qty"><button onclick="setQty('+ix+',-1)">−</button><span>'+i.qty+'</span><button onclick="setQty('+ix+',1)">+</button><button onclick="removeLine('+ix+')" style="border:0;color:#8a2f1d">Remover</button></div></div><b>'+fmt(p.price*i.qty)+'</b></div>'}).join('');
-  foot.innerHTML='<div class="row"><span>'+cartCount()+' artigo(s) no saco.</span><span>Subtotal <b>'+fmt(sub)+'</b></span></div><button class="btn-line" onclick="goCheckout()"><span>Finalizar compra</span><span>→</span></button><p class="note">Precisas de conta para finalizar.</p>';
+  foot.innerHTML='<div class="row"><span>'+cartCount()+' artigo(s) no saco.</span><span>Subtotal <b>'+fmt(sub)+'</b></span></div><button class="btn-line" onclick="goCheckout()"><span>Finalizar compra</span><span>→</span></button>'+(me()?'':'<p class="note">Precisas de conta para finalizar.</p>');
 }
 function goCheckout(){closeDrawers();location.hash='#/finalizar'}
 </script>
@@ -792,7 +793,7 @@ function renderAccount(){
   const admin=isAdmin(u);
   let body='';
   if(acctTab==='encomendas'){
-    body=myOrders.length?myOrders.map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:10px;font-size:14px">'+o.items.map(i=>{const p=products().find(x=>x.id===i.id);return p?esc(p.name)+' (n.º '+i.size+') × '+i.qty:''}).filter(Boolean).join(' · ')+'</p><p style="margin-top:6px"><b>'+fmt(o.total)+'</b> · '+esc(o.deliveryLabel)+'</p><p style="margin-top:10px"><a class="mini" href="#/encomenda/'+o.id+'">Ver recibo</a> <button class="mini" onclick="openChat()">Falar no chat</button></p></div>').join(''):'<p style="color:var(--mut)">Ainda não tens encomendas. <a href="#/loja" style="text-decoration:underline">Ver os ténis →</a></p>';
+    body=myOrders.length?myOrders.map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:10px;font-size:14px">'+o.items.map(i=>{const p=products().find(x=>x.id===i.id);const nm=i.name||(p?p.name:'');return nm?esc(nm)+' (n.º '+i.size+') × '+i.qty:''}).filter(Boolean).join(' · ')+'</p><p style="margin-top:6px"><b>'+fmt(o.total)+'</b> · '+esc(o.deliveryLabel)+'</p><p style="margin-top:10px"><a class="mini" href="#/encomenda/'+o.id+'">Ver recibo</a> <button class="mini" onclick="openChat()">Falar no chat</button></p></div>').join(''):'<p style="color:var(--mut)">Ainda não tens encomendas. <a href="#/loja" style="text-decoration:underline">Ver os ténis →</a></p>';
   }else if(acctTab==='dados'){
     body='<div class="form" style="margin:0;max-width:420px"><label>Nome</label><input id="uName" value="'+esc(u.name||'')+'"><label>Telefone</label><input id="uPhone" value="'+esc(u.phone||'')+'"><button class="btn-line" onclick="saveProfile()"><span>Guardar dados</span></button><div id="profMsg"></div></div>';
   }else{
@@ -865,7 +866,8 @@ function placeOrder(total,fee){
   const c=cart();const ps=products();
   for(const i of c){const p=ps.find(x=>x.id===i.id);if(p&&p.stock<i.qty){msg.innerHTML='<div class="err">Só há '+p.stock+' par(es) de '+esc(p.name)+' em stock.</div>';return}}
   const id='PASSO-'+Date.now().toString(36).toUpperCase();
-  const ord={id,email:u.email,name:u.name||u.email,phone,address:addr,delivery:coMethod,deliveryLabel:coMethod+' · '+(fee===0?'Grátis':fmt(fee)),items:c,total,status:'aguarda',date:todayStr()+' '+nowHM()};
+  const itemsSnap=c.map(i=>{const p=ps.find(x=>x.id===i.id);return {id:i.id,size:i.size,qty:i.qty,name:p?p.name:'',price:p?p.price:0,cat:p?p.cat:''}});
+  const ord={id,email:u.email,name:u.name||u.email,phone,address:addr,delivery:coMethod,deliveryLabel:coMethod+' · '+(fee===0?'Grátis':fmt(fee)),items:itemsSnap,total,status:'aguarda',date:todayStr()+' '+nowHM()};
   const os=orders();os.unshift(ord);save('orders',os);
   const ch=chats();const key=u.email;
   (ch[key]=ch[key]||[]).push({from:'me',text:'Olá! Fiz a encomenda '+id+' ('+fmt(total)+'). O meu número M-Pesa é '+phone+'.',t:nowHM()});
@@ -881,7 +883,7 @@ function renderOrder(id){
   if(!o){root.innerHTML='<h1>Encomenda não encontrada.</h1>';return}
   const ps=products();
   root.innerHTML='<p style="font-size:12px;color:var(--mut)">Encomenda</p><h1>'+o.id+'</h1><p style="margin-top:8px"><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span> <span style="color:var(--mut);font-size:13px">'+o.date+'</span></p>'
-  +'<div class="ord" style="margin-top:26px">'+o.items.map(i=>{const p=ps.find(x=>x.id===i.id);return p?'<p style="font-size:14px;padding:6px 0;border-bottom:1px solid var(--line)">'+esc(p.name)+' (n.º '+i.size+') × '+i.qty+' — <b>'+fmt(p.price*i.qty)+'</b></p>':''}).join('')+'<p style="margin-top:12px;font-size:14px">Entrega: '+esc(o.deliveryLabel)+'</p><p style="font-size:17px;margin-top:6px">Total: <b>'+fmt(o.total)+'</b></p><p style="font-size:14px;color:var(--mut)">M-Pesa: '+esc(o.phone)+'<br>Morada: '+esc(o.address||'Levantamento na loja')+'</p></div>'
+  +'<div class="ord" style="margin-top:26px">'+o.items.map(i=>{const p=ps.find(x=>x.id===i.id);const nm=i.name||(p?p.name:'');const pr=(i.price!=null?i.price:(p?p.price:0));return nm?'<p style="font-size:14px;padding:6px 0;border-bottom:1px solid var(--line)">'+esc(nm)+' (n.º '+i.size+') × '+i.qty+' — <b>'+fmt(pr*i.qty)+'</b></p>':''}).join('')+'<p style="margin-top:12px;font-size:14px">Entrega: '+esc(o.deliveryLabel)+'</p><p style="font-size:17px;margin-top:6px">Total: <b>'+fmt(o.total)+'</b></p><p style="font-size:14px;color:var(--mut)">M-Pesa: '+esc(o.phone)+'<br>Morada: '+esc(o.address||'Levantamento na loja')+'</p></div>'
   +'<p style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn-line" style="max-width:260px" onclick="openChat()"><span>Falar com a loja</span></button><a class="btn-line" style="max-width:260px" href="#/conta"><span>Minhas encomendas</span></a></p>';
 }
 /* ---------- admin ---------- */
@@ -903,7 +905,7 @@ function renderAdmin(){
   }else if(admTab==='produtos'){
     body='<p style="color:var(--mut);margin-bottom:16px">Editar preço e stock, ou trocar a foto do produto por ficheiro (nunca por link).</p><table class="tb"><tr><th>Foto</th><th>Modelo</th><th>Preço</th><th>Stock</th><th></th></tr>'+ps.map(p=>'<tr><td><img src="'+p.img+'" alt=""></td><td><b>'+esc(p.name)+'</b><br><span style="color:var(--mut)">'+esc(p.cat)+'</span></td><td><input type="number" min="0" value="'+p.price+'" style="width:92px;padding:8px;border:1px solid var(--line)" onchange="admPrice(\''+p.id+'\',this.value)"></td><td><input type="number" min="0" value="'+p.stock+'" style="width:70px;padding:8px;border:1px solid var(--line)" onchange="admStock(\''+p.id+'\',this.value)"></td><td><label class="mini" style="cursor:pointer">Foto<input type="file" accept="image/*" style="display:none" onchange="admPhoto(\''+p.id+'\',this)"></label></td></tr>').join('')+'</table>';
   }else if(admTab==='encomendas'){
-    body=os.length?os.map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+' · '+esc(o.email)+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:10px;font-size:14px">'+o.items.map(i=>{const p=ps.find(x=>x.id===i.id);return p?esc(p.name)+' (n.º '+i.size+') × '+i.qty:''}).filter(Boolean).join(' · ')+'</p><p style="margin-top:6px"><b>'+fmt(o.total)+'</b> · '+esc(o.deliveryLabel)+' · M-Pesa '+esc(o.phone)+'</p><p style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'+(o.status!=='pago'?'<button class="mini" onclick="admPay(\''+o.id+'\')">Marcar como pago</button>':'<button class="mini danger" onclick="admUnpay(\''+o.id+'\')">Reverter para aguarda</button>')+'<button class="mini" onclick="admReply(\''+o.email+'\')">Responder no chat</button></p></div>').join(''):'<p style="color:var(--mut)">Ainda não há encomendas.</p>';
+    body=os.length?os.map(o=>'<div class="ord"><div class="top"><span class="id">'+o.id+' · '+o.date+' · '+esc(o.email)+'</span><span class="pill '+(o.status==='pago'?'paid':'wait')+'">'+(o.status==='pago'?'Pago':'Aguarda pagamento')+'</span></div><p style="margin-top:10px;font-size:14px">'+o.items.map(i=>{const p=ps.find(x=>x.id===i.id);const nm=i.name||(p?p.name:'');return nm?esc(nm)+' (n.º '+i.size+') × '+i.qty:''}).filter(Boolean).join(' · ')+'</p><p style="margin-top:6px"><b>'+fmt(o.total)+'</b> · '+esc(o.deliveryLabel)+' · M-Pesa '+esc(o.phone)+'</p><p style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">'+(o.status!=='pago'?'<button class="mini" onclick="admPay(\''+o.id+'\')">Marcar como pago</button>':'<button class="mini danger" onclick="admUnpay(\''+o.id+'\')">Reverter para aguarda</button>')+'<button class="mini" onclick="admReply(\''+o.email+'\')">Responder no chat</button></p></div>').join(''):'<p style="color:var(--mut)">Ainda não há encomendas.</p>';
   }else if(admTab==='clientes'){
     body='<table class="tb"><tr><th>Cliente</th><th>Telefone</th><th>Desde</th><th>Encomendas</th></tr>'+us.map(x=>'<tr><td>'+esc(x.name||x.email)+'<br><span style="color:var(--mut)">'+esc(x.email)+'</span></td><td>'+esc(x.phone||'—')+'</td><td>'+esc(x.created||'—')+'</td><td>'+os.filter(o=>o.email===x.email).length+'</td></tr>').join('')+'</table>';
   }else if(admTab==='conversas'){
@@ -1028,11 +1030,12 @@ function toggleRec(){
 }
 /* ---------- router ---------- */
 function route(){
-  const raw=(location.hash||'#/inicio').replace(/^#\/?/,'');
+  const h=(location.hash||'#/inicio');
+  const q=new URLSearchParams(h.split('?')[1]||'');
+  const raw=h.replace(/^#\/?/,'').split('?')[0];
   const parts=raw.split('/');
   const page=parts[0]||'inicio';
   const param=parts[1]||'';
-  const q=new URLSearchParams((location.hash.split('?')[1]||''));
   closeDrawers();closeMenu();
   const footer=document.getElementById('siteFooter');
   footer.classList.toggle('light',page!=='inicio');
